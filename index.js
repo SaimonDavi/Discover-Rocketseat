@@ -1,15 +1,7 @@
-function sayMyName(name) {
-    if(name === '') {
-        throw 'Erro! Nome é obrigatório'
+for(let i = 0; i <= 3; i++) {
+    if(i == 2) {
+        console.log('continue')
+        continue;
     }
-    console.log(name)
+    console.log(i);
 }
-
-try {
-    sayMyName('Saimon')
-    sayMyName('')
-} catch (error) {
-    console.log(error)
-}
-
-console.log('Depois da função')

@@ -1,23 +1,29 @@
-let nome = 'Saimon'
-let nomes = ['Pedro', 'Paulo', 'João']
+let nota = 40
 
-for(let char of nome) {
-    console.log(char)
-}
+function getNota(notaNum) {
+    let notaLet = ''
 
-for(let nomeArray of nomes) {
-    for(let char of nomeArray){
-        console.log(char)
+    let notaA = notaNum >= 90 && notaNum <= 100
+    let notaB = notaNum >= 80 && notaNum <= 89
+    let notaC = notaNum >= 70 && notaNum <= 79
+    let notaD = notaNum >= 60 && notaNum <= 69
+    let notaF = notaNum < 60 && notaNum >=0
+    
+    if(notaA) {
+        notaLet = 'A'
+    } else if(notaB) {
+        notaLet = 'B'
+    } else if(notaC) {
+        notaLet = 'C'
+    } else if(notaD) {
+        notaLet = 'D'
+    } else if(notaF) {
+        notaLet = 'F'
+    } else {
+        notaLet = 'Nota inválida'
     }
+
+    return notaLet;
 }
 
-let person = {
-    name: 'John',
-    age: 20,
-    weight: 68.7
-}
-
-for(let property in person){
-    console.log(property)
-    console.log(person[property])
-}
+console.log(getNota(nota))

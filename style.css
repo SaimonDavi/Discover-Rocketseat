@@ -28,3 +28,39 @@ ul li:last-child a {
     background: black;
     padding: 0.8rem;
 }
+
+.container {
+    display: flex;
+    gap: 1rem;
+}
+
+aside, main {
+    border: 1px solid;
+    height: 40rem;
+}
+
+aside {
+    flex-basis: 25%;
+}
+
+main {
+    flex: 1;
+}
+
+aside p, main p {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+#gallery img {
+    width: 30%;
+    height: auto;
+}

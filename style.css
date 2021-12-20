@@ -1,32 +1,30 @@
 * {
     margin: 0;
+    text-decoration: none;
     color: black;
-    font-family: "Gill Sans Extrabold", sans-serif;;
 }
 
 header {
-    padding: 2rem 4rem;
-    background-color: lightgray;
+    padding: 4rem;
+    background: lightgray;
+    color: black;
+}
 
+nav {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
 }
 
-header a {
-    text-decoration: none;
-}
-
-header nav {
+ul {
     display: flex;
     align-items: center;
+    list-style: none;
     gap: 0.8rem;
 }
 
-header nav a:last-child {
-    padding: 0.8rem;
-    background-color: black;
+ul li:last-child a {
     color: white;
-    border-radius: 0.4rem;
+    background: black;
+    padding: 0.8rem;
 }

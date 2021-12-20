@@ -1,14 +1,32 @@
-body {
+* {
     margin: 0;
-    height: 100vh;
+    color: black;
+    font-family: "Gill Sans Extrabold", sans-serif;;
 }
 
-#form {
+header {
+    padding: 2rem 4rem;
+    background-color: lightgray;
+
     display: flex;
-    flex-direction: column;
-    margin-right: 50rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#form button {
-    width: 8rem;
+header a {
+    text-decoration: none;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+header nav a:last-child {
+    padding: 0.8rem;
+    background-color: black;
+    color: white;
+    border-radius: 0.4rem;
 }

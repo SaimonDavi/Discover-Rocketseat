@@ -29,14 +29,31 @@ ul li:last-child a {
     padding: 0.8rem;
 }
 
+button {
+    display: flex;
+    align-items: center;
+
+    line-height: 0;
+
+    gap: 0.4rem;
+
+    padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+}
+
+button img {
+    width: 2rem;
+    height: 2rem;
+}
+
 .container {
+    margin-top: 2rem;
     display: flex;
     gap: 1rem;
 }
 
 aside, main {
     border: 1px solid;
-    height: 40rem;
+    height: 20rem;
 }
 
 aside {
@@ -62,5 +79,14 @@ aside p, main p {
 
 #gallery img {
     width: 30%;
-    height: auto;
+    height: 20rem;
+}
+
+footer {
+    padding: 4rem;
+    background: lightgray;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

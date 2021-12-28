@@ -1,9 +1,11 @@
-// Neste exemplo foi criado um timer no Node
 // Para executá-lo esteja no diretório onde está o arquivo e execute o comando 'node nomeDoArquivo.exemplo'
 
-const timeOut = 500
-const checking = () => console.log('checking!')
+const events = require('events')
+const { EventEmitter } = require('events')
 
-let interval = setInterval(checking, timeOut)
+console.log(events)
+console.log(EventEmitter)
 
-setTimeout(() => clearInterval(interval), 3000)
+const ev = new EventEmitter()
+
+console.log(ev)

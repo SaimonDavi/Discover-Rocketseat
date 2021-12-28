@@ -1,1 +1,0 @@
-module.exports = "Enviando arquivos do meu módulo"

@@ -1,16 +1,16 @@
 // Para executá-lo esteja no diretório onde está o arquivo e execute o comando 'node nomeDoArquivo.exemplo'
 
+const { inherits } = require('util')
 const { EventEmitter } = require('events')
 
-const ev = new EventEmitter()
+function Character(name) {
+    this.name = name
+}
 
-ev.on('saySomething', (a) => {
-    console.log(`${a} listened`)
-})
+inherits(Character, EventEmitter)
 
-ev.once('saySomething', (a) => {
-    console.log(`${a} listened`)
-})
+const chapolin = new Character('Chapolin');
+chapolin.on('help', () => console.log(`Eu sou o ${chapolin.name} colorado!`))
 
-ev.emit('saySomething', 'first message')
-ev.emit('saySomething', 'second message')
+console.log('Oh! Quem poderá nos defender?')
+chapolin.emit('help')

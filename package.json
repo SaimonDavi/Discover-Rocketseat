@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/SaimonDavi/rocketseat-discover/issues"
   },
-  "homepage": "https://github.com/SaimonDavi/rocketseat-discover#readme"
+  "homepage": "https://github.com/SaimonDavi/rocketseat-discover#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2"
+  }
 }

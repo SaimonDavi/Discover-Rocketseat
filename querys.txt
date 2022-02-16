@@ -1,5 +1,21 @@
-INSERT INTO aluno(nome, cpf, responsavel) VALUES ('Maria Luiza', 85274196415, 'Andrea Martins')
+SELECT * FROM funcionarios 
+JOIN departamentos 
+ON departamentos.id_dept = funcionarios.id_departamento
+WHERE funcionarios.id_departamento = 2
 
-UPDATE aluno SET nome = 'Cecília Prates' WHERE matricula = 1 
 
-DELETE FROM aluno WHERE matricula = 6
+SELECT funcionarios.nome, funcionarios.cpf, departamentos.descricao
+FROM funcionarios 
+JOIN departamentos 
+ON departamentos.id_dept = funcionarios.id_departamento
+
+
+SELECT func.nome as 'Nome', func.cpf as 'CPF', dept.descricao 'Departamento'
+FROM funcionarios as func
+JOIN departamentos as dept
+ON func.id_departamento = dept.id_dept
+
+
+SELECT * FROM funcionarios
+LEFT OUTER JOIN departamentos
+ON funcionarios.id_departamento = departamentos.id_dept

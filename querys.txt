@@ -1,21 +1,29 @@
-SELECT * FROM funcionarios 
-JOIN departamentos 
-ON departamentos.id_dept = funcionarios.id_departamento
-WHERE funcionarios.id_departamento = 2
+SELECT * FROM aluno
+ORDER BY nome
 
+SELECT * FROM aluno
+ORDER BY cpf DESC
 
-SELECT funcionarios.nome, funcionarios.cpf, departamentos.descricao
-FROM funcionarios 
-JOIN departamentos 
-ON departamentos.id_dept = funcionarios.id_departamento
+SELECT * FROM aluno
+LIMIT 1
 
+SELECT * FROM aluno
+LIMIT 2 OFFSET 1
 
-SELECT func.nome as 'Nome', func.cpf as 'CPF', dept.descricao 'Departamento'
-FROM funcionarios as func
-JOIN departamentos as dept
-ON func.id_departamento = dept.id_dept
+SELECT COUNT() FROM aluno
 
+SELECT id_departamento, COUNT(id_departamento) 
+FROM funcionarios GROUP BY id_departamento
 
-SELECT * FROM funcionarios
-LEFT OUTER JOIN departamentos
+SELECT departamentos.descricao, COUNT(funcionarios.id_departamento)
+FROM funcionarios
+JOIN departamentos
 ON funcionarios.id_departamento = departamentos.id_dept
+GROUP BY departamentos.id_dept
+
+SELECT departamentos.descricao, COUNT(funcionarios.id_departamento)
+FROM funcionarios
+JOIN departamentos
+ON funcionarios.id_departamento = departamentos.id_dept
+GROUP BY departamentos.id_dept
+HAVING COUNT(funcionarios.id_departamento) >= 2

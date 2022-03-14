@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 93.75%;
+}
+
 body {
     background-color: #f0f2f5;
     font-family: 'Poppins', sans-serif;
@@ -35,6 +39,22 @@ h2 {
     color: #363f5f;
 
     font-weight: 400;
+}
+
+/* ------------------------------------------------  */
+
+.button {
+    color: #49aa26;
+    text-decoration: none;
+}
+
+.button:hover {
+    color: #3dd705;
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: 0.8rem;
 }
 
 /* ------------------------------------------------  */
@@ -104,6 +124,11 @@ table tbody tr td:first-child {
     border-radius: 0.25rem 0 0 0.25rem;
 }
 
+table thead tr th:last-child,
+table tbody tr td:last-child {
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+
 table th {
     background-color: #fff;
     font-weight: 400;
@@ -145,3 +170,6 @@ footer {
     color: #363f5f;
     opacity: 0.7;
 }
+
+/* ------------------------------------------------  */
+

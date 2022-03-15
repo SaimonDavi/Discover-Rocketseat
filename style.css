@@ -113,6 +113,12 @@ header h1 {
 
 /* ------------------------------------------------  */
 
+#transaction {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
 #data-table {
     width: 100%;
     border-spacing: 0 0.5rem;
@@ -173,3 +179,15 @@ footer {
 
 /* ------------------------------------------------  */
 
+@media(min-width: 800px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    #balance {
+        display: grid;
+        /* grid-template-columns: 1fr 1fr 1fr; */
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}

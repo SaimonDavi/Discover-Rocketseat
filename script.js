@@ -22,29 +22,57 @@ const transactions = [
         description: 'Internet',
         amount: -20000,
         date: '21/03/2022'
+    },
+    {
+        id: 4,
+        description: 'Freelance',
+        amount: 20000,
+        date: '21/03/2022'
     }
 ]
 
 const Transactions = {
     incomes() {
+        let income = 0
 
+        transactions.forEach(element => {
+            if(element.amount > 0) {
+                income += element.amount
+            }
+        });
+
+        return income
     },
     expenses() {
+        let expense = 0
 
+        transactions.forEach(element => {
+            console.log(element.description)
+            if(element.amount < 0) {
+                console.log(expense)
+                expense += element.amount
+                console.log(expense)
+            }
+        });
+
+        return expense
     },
-    total() {
-
+    total(expenses, incomes) {
+        let total = expenses + incomes
+        
+        return total
     }
 }
 
 const DOMFunctions = {
-    transactionsContainer : document.querySelector('#data-table tbody')
-    ,
+    transactionsContainer : document.querySelector('#data-table tbody'),
+
     addTransaction(transaction, index) {
         const tr = document.createElement('tr')
         tr.innerHTML = DOMFunctions.innerHTMLTransaction(transaction)
         DOMFunctions.transactionsContainer.appendChild(tr)
     },
+
     innerHTMLTransaction(transaction) {
         const CSSclass = transaction.amount > 0 ? 'income' : 'expense'
 
@@ -58,12 +86,23 @@ const DOMFunctions = {
         `
 
         return htmlContent
+    },
+
+    updateBalance() {
+        let incomesCard = Transactions.incomes()
+        document.getElementById('incomeDisplay').innerHTML = Utils.formatCurrency(incomesCard)
+
+        let expensesCard = Transactions.expenses()
+        document.getElementById('expenseDisplay').innerHTML = Utils.formatCurrency(expensesCard)
+
+        let totalCard = Transactions.total(expensesCard, incomesCard)
+        document.getElementById('totalDisplay').innerHTML = Utils.formatCurrency(totalCard)
     }
 }
 
 const Utils = {
     formatCurrency(value) {
-        const signal = Number(value) > 0 ? '' : '- '
+        const signal = Number(value) > 0 ? '' : '-'
 
         value = String(value).replace(/\D/g, '')
 
@@ -81,3 +120,5 @@ const Utils = {
 transactions.forEach(transaction => {
     DOMFunctions.addTransaction(transaction)
 });
+
+DOMFunctions.updateBalance()

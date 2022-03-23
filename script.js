@@ -4,35 +4,32 @@ const Modal = {
     }
 }
 
-const transactions = [
-    {
-        description: 'Luz',
-        amount: -50000,
-        date: '21/03/2022'
-    },
-    {
-        description: 'Trabalho',
-        amount: 500000,
-        date: '21/03/2022'
-    },
-    {
-        description: 'Internet',
-        amount: -20000,
-        date: '21/03/2022'
-    },
-    {
-        description: 'Freelance',
-        amount: 20000,
-        date: '21/03/2022'
-    }
-]
-
 const Transactions = {
-    all: transactions,
+    all: [
+        {
+            description: 'Luz',
+            amount: -50000,
+            date: '21/03/2022'
+        },
+        {
+            description: 'Trabalho',
+            amount: 500000,
+            date: '21/03/2022'
+        },
+        {
+            description: 'Internet',
+            amount: -20000,
+            date: '21/03/2022'
+        },
+        {
+            description: 'Freelance',
+            amount: 20000,
+            date: '21/03/2022'
+        }
+    ],
 
     add(transaction) {
         Transactions.all.push(transaction)
-        console.log(Transactions.all)
         App.reload()
     },
 
@@ -57,11 +54,8 @@ const Transactions = {
         let expense = 0
 
         Transactions.all.forEach(element => {
-            console.log(element.description)
             if (element.amount < 0) {
-                console.log(expense)
                 expense += element.amount
-                console.log(expense)
             }
         });
 
@@ -132,6 +126,12 @@ const Utils = {
     }
 }
 
+const Form = {
+    submit(event) {
+        console.log(event)
+    }
+}
+
 const App = {
     init() {
         Transactions.all.forEach(transaction => {
@@ -147,5 +147,3 @@ const App = {
 }
 
 App.init()
-
-Transactions.remove(1)

@@ -6,25 +6,21 @@ const Modal = {
 
 const transactions = [
     {
-        id: 1,
         description: 'Luz',
         amount: -50000,
         date: '21/03/2022'
     },
     {
-        id: 2,
         description: 'Trabalho',
         amount: 500000,
         date: '21/03/2022'
     },
     {
-        id: 3,
         description: 'Internet',
         amount: -20000,
         date: '21/03/2022'
     },
     {
-        id: 4,
         description: 'Freelance',
         amount: 20000,
         date: '21/03/2022'
@@ -32,23 +28,37 @@ const transactions = [
 ]
 
 const Transactions = {
+    all: transactions,
+
+    add(transaction) {
+        Transactions.all.push(transaction)
+        console.log(Transactions.all)
+        App.reload()
+    },
+
+    remove(index) {
+        Transactions.all.splice(index, 1)
+        App.reload()
+    },
+
     incomes() {
         let income = 0
 
-        transactions.forEach(element => {
-            if(element.amount > 0) {
+        Transactions.all.forEach(element => {
+            if (element.amount > 0) {
                 income += element.amount
             }
         });
 
         return income
     },
+
     expenses() {
         let expense = 0
 
-        transactions.forEach(element => {
+        Transactions.all.forEach(element => {
             console.log(element.description)
-            if(element.amount < 0) {
+            if (element.amount < 0) {
                 console.log(expense)
                 expense += element.amount
                 console.log(expense)
@@ -57,15 +67,16 @@ const Transactions = {
 
         return expense
     },
+
     total(expenses, incomes) {
         let total = expenses + incomes
-        
+
         return total
     }
 }
 
 const DOMFunctions = {
-    transactionsContainer : document.querySelector('#data-table tbody'),
+    transactionsContainer: document.querySelector('#data-table tbody'),
 
     addTransaction(transaction, index) {
         const tr = document.createElement('tr')
@@ -97,6 +108,10 @@ const DOMFunctions = {
 
         let totalCard = Transactions.total(expensesCard, incomesCard)
         document.getElementById('totalDisplay').innerHTML = Utils.formatCurrency(totalCard)
+    },
+
+    clearTransactions() {
+        DOMFunctions.transactionsContainer.innerHTML = ""
     }
 }
 
@@ -117,8 +132,20 @@ const Utils = {
     }
 }
 
-transactions.forEach(transaction => {
-    DOMFunctions.addTransaction(transaction)
-});
+const App = {
+    init() {
+        Transactions.all.forEach(transaction => {
+            DOMFunctions.addTransaction(transaction)
+        });
 
-DOMFunctions.updateBalance()
+        DOMFunctions.updateBalance()
+    },
+    reload() {
+        DOMFunctions.clearTransactions()
+        App.init()
+    }
+}
+
+App.init()
+
+Transactions.remove(1)

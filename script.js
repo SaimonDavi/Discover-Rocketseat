@@ -4,29 +4,17 @@ const Modal = {
     }
 }
 
+const Storage = {
+    get() {
+        return JSON.parse(localStorage.getItem("dev.finances: transactions")) || []
+    },
+    set(transactions) {
+        localStorage.setItem("dev.finances: transactions", JSON.stringify(transactions))
+    }
+}
+
 const Transactions = {
-    all: [
-        {
-            description: 'Luz',
-            amount: -50000,
-            date: '21/03/2022'
-        },
-        {
-            description: 'Trabalho',
-            amount: 500000,
-            date: '21/03/2022'
-        },
-        {
-            description: 'Internet',
-            amount: -20000,
-            date: '21/03/2022'
-        },
-        {
-            description: 'Freelance',
-            amount: 20000,
-            date: '21/03/2022'
-        }
-    ],
+    all: Storage.get(),
 
     add(transaction) {
         Transactions.all.push(transaction)
@@ -115,7 +103,7 @@ const DOMFunctions = {
 
 const Utils = {
     formatCurrency(value) {
-        const signal = Number(value) > 0 ? '' : '-'
+        const signal = Number(value) < 0 ? '-' : ''
 
         value = String(value).replace(/\D/g, '')
 
@@ -206,6 +194,8 @@ const App = {
         });
 
         DOMFunctions.updateBalance()
+
+        Storage.set(Transactions.all)
     },
     reload() {
         DOMFunctions.clearTransactions()

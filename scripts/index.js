@@ -1,16 +1,10 @@
-let variable = false
+import fetch from 'node-fetch';
 
-const newPromisse = new Promise(( resolve, reject ) => {
-    if(variable) {
-        return resolve('Resolvido')
-    } else {
-        return reject('Rejeitado')
-    }
-})
+fetch("https://api.github.com/users/SaimonDavi").then((response) =>
+  console.log(response)
+);
 
-newPromisse.then(result => console.log(result + ' then'))
-    .catch(err => console.log(err + ' catch'))
-    .finally(() => console.log('Finalizado'))
-    
+// const response = await fetch('https://api.github.com/users/SaimonDavi');
+// const body = await response.text();
 
-
+// console.log(body);

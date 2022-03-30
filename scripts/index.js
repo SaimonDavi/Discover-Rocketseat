@@ -1,4 +1,4 @@
-let variable = false
+let variable = true
 
 const newPromisse = new Promise(( resolve, reject ) => {
     if(variable) {
@@ -8,8 +8,8 @@ const newPromisse = new Promise(( resolve, reject ) => {
     }
 })
 
-newPromisse.then(result => console.log(result))
-    .catch(err => console.log(err))
+newPromisse.then(result => console.log(result + ' then'))
+    .catch(err => {console.log(err + ' catch')})
     .finally(() => {console.log('Finalizado')})
     
 

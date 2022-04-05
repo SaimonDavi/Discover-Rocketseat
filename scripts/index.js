@@ -2,5 +2,8 @@ import axios from "axios";
 
 axios.get('https://api.github.com/users/SaimonDavi')
   .then(res => {
-    console.log(res.data);
-  });
+    console.log(res.data.name);
+  })
+  .catch(error => {
+      console.log(error)
+  })
